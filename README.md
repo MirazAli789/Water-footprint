@@ -24,7 +24,7 @@ Check out the live demo [here](https://mirazali789.github.io/Water-footprint/).
 
 ## 📸 Screenshots
 
-![Water Footprint Calculator Screenshot](./screenshot.png)
+![Water Footprint Calculator Screenshot](water.png)
 
 ## 🚀 Getting Started
 
