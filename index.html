@@ -201,7 +201,7 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .dark-mode-toggle {
+    .dark-mode-toggle {
     position: relative;
     width: 60px;
     height: 30px;
@@ -236,8 +236,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 14px;
-    color: #ffdd57; /* Sun color */
+    font-size: 16px;
+    color: #ffcf10; /* Sun color */
     transform: translate(-50%, -50%);
     transition: opacity 0.3s ease;
 }
@@ -247,14 +247,14 @@
     color: #ffcc00; /* Moon color */
 }
 
-#dark-mode-toggle:checked + .toggle-label {
-    background-color: #4caf50;
-    box-shadow: inset 0 0 10px rgba(0, 128, 0, 0.5);
-}
+/* #dark-mode-toggle:checked + .toggle-label {
+    background-color: #000000;
+    box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.5); */
+/* } */
 
 #dark-mode-toggle:checked + .toggle-label .toggle-ball {
     transform: translateX(30px);
-    background-color: #fff;
+    background-color: #7e7e7e;
 }
 
 .dark-mode-toggle .toggle-ball::after {
@@ -264,7 +264,7 @@
     left: 50%;
     width: 14px;
     height: 14px;
-    background-color: #ccc;
+    background-color: #ecaf08;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
