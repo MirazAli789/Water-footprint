@@ -154,67 +154,128 @@
         body.dark-mode {
             background-color: #121212;
             color: #e0e0e0;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body.dark-mode .header {
-            background: linear-gradient(to right, #333, #555);
+            background: linear-gradient(to right, #444, #666);
+            transition: background 0.3s ease;
         }
 
         body.dark-mode .navbar {
-            background-color: #333;
+            background-color: #2c2c2c;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         body.dark-mode .sidebar-menu {
-            background-color: #333;
+            background-color: #2c2c2c;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         body.dark-mode .stylish-button {
-            background-color: #444;
+            background-color: #555;
+            color: #e0e0e0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            border-radius: 5px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.dark-mode .stylish-button:hover {
+            background-color: #666;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
 
         body.dark-mode .section {
             background-color: #1e1e1e;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 20px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         body.dark-mode .footer {
-            background-color: #333;
+            background-color: #2c2c2c;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .dark-mode-toggle {
-            position: relative;
-            width: 50px;
-            height: 25px;
-            background-color: #ccc;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
-        .dark-mode-toggle .toggle-label {
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
+.dark-mode-toggle .toggle-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 
-        .dark-mode-toggle .toggle-ball {
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 21px;
-            height: 21px;
-            background-color: white;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
+.dark-mode-toggle .toggle-ball {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        #dark-mode-toggle:checked+.toggle-label .toggle-ball {
-            transform: translateX(25px);
-        }
+.dark-mode-toggle .toggle-ball::before {
+    content: "\2600"; /* Sun icon (☀) */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 14px;
+    color: #ffdd57; /* Sun color */
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
 
-        #dark-mode-toggle:checked+.toggle-label {
-            background-color: #4caf50;
-        }
+#dark-mode-toggle:checked + .toggle-label .toggle-ball::before {
+    content: "\1F319"; /* Moon icon (🌙) */
+    color: #ffcc00; /* Moon color */
+}
+
+#dark-mode-toggle:checked + .toggle-label {
+    background-color: #4caf50;
+    box-shadow: inset 0 0 10px rgba(0, 128, 0, 0.5);
+}
+
+#dark-mode-toggle:checked + .toggle-label .toggle-ball {
+    transform: translateX(30px);
+    background-color: #fff;
+}
+
+.dark-mode-toggle .toggle-ball::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#dark-mode-toggle:not(:checked) + .toggle-label .toggle-ball::after {
+    opacity: 1;
+}
+
+
     </style>
 </head>
 
