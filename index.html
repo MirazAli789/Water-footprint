@@ -200,35 +200,90 @@
             transform: rotate(-45deg);
         }
 
+        /* General Dark Mode Styles */
         body.dark-mode {
             background-color: #121212;
+            /* Dark background for the entire page */
             color: #e0e0e0;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Light text color for readability */
         }
 
-        body.dark-mode .header {
-            background: linear-gradient(to right, #444, #666);
-            transition: background 0.3s ease;
-        }
-
+        /* Navbar Styles */
         body.dark-mode .navbar {
-            background-color: #2c2c2c;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        body.dark-mode .sidebar-menu {
-            background-color: #2c2c2c;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        body.dark-mode .stylish-button {
-            background-color: #555;
+            background-color: rgba(44, 44, 44, 0.8);
+            /* Slightly more opaque */
+            backdrop-filter: blur(8px);
+            /* Subtle blur effect */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            /* Light shadow for depth */
             color: #e0e0e0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            border-radius: 5px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            /* Light color for navbar text */
+        }
+
+        body.dark-mode .navbar a {
+            color: #e0e0e0;
+            /* Light color for navbar links */
+        }
+
+        body.dark-mode .navbar:hover {
+            background-color: rgba(44, 44, 44, 0.9);
+            /* Darker on hover */
+        }
+
+        /* Sidebar Menu Styles */
+        body.dark-mode #navbar-menu {
+            background-color: rgba(44, 44, 44, 0.9);
+            /* More opaque for better visibility */
+            backdrop-filter: blur(8px);
+            /* Consistent blur effect */
+            border-right: 1px solid #333;
+            /* Light border for separation */
+        }
+
+        /* Navbar Toggler */
+        body.dark-mode .navbar-toggler button span {
+            background-color: #ffffff;
+            /* White toggler bars */
+        }
+
+        /* General Text and Link Styles */
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4,
+        body.dark-mode h5,
+        body.dark-mode h6 {
+            color: #e0e0e0;
+            /* Light color for headers */
+        }
+
+        body.dark-mode p,
+        body.dark-mode li,
+        body.dark-mode a {
+            color: #b0b0b0;
+            /* Softer color for regular text and links */
+        }
+
+        body.dark-mode a:hover {
+            color: #ffffff;
+            /* Highlighted link color on hover */
+        }
+
+        /* Buttons */
+        body.dark-mode .btn {
+            background-color: #333;
+            /* Dark background for buttons */
+            color: #e0e0e0;
+            /* Light text color */
+            border: 1px solid #444;
+            /* Border to define button edges */
+        }
+
+        body.dark-mode .btn:hover {
+            background-color: #444;
+            /* Darker on hover */
+            border-color: #555;
+            /* Slightly lighter border */
         }
 
         body.dark-mode .stylish-button:hover {
@@ -326,6 +381,85 @@
 
         #dark-mode-toggle:not(:checked)+.toggle-label .toggle-ball::after {
             opacity: 1;
+        }
+
+        /* Blog Card Styles */
+        .blog-card {
+            background-color: #ffffff;
+            /* Light background for contrast */
+            padding: 1.5rem;
+            /* Increased padding for better spacing */
+            border-radius: 0.5rem;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Slight shadow for depth */
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            /* Smooth transition effects */
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            /* Darker shadow on hover */
+            transform: translateY(-5px);
+            /* Slight lift effect */
+        }
+
+        .read-more {
+            color: #1d4ed8;
+            /* Blue color for links */
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+            /* Underline on hover */
+        }
+
+        /* Infographic Card Styles */
+        .infographic-card {
+            background-color: #ffffff;
+            /* Light background for contrast */
+            padding: 1.5rem;
+            /* Increased padding for better spacing */
+            border-radius: 0.5rem;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Slight shadow for depth */
+        }
+
+        .infographic-card img {
+            max-height: 200px;
+            /* Set max height for images */
+            object-fit: cover;
+            /* Maintain aspect ratio */
+        }
+
+        /* Testimonial Card Styles */
+        .testimonial-card {
+            background-color: #ffffff;
+            /* Light background for contrast */
+            padding: 1.5rem;
+            /* Increased padding for better spacing */
+            border-radius: 0.5rem;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Slight shadow for depth */
+        }
+
+        /* Dark Mode Adjustments */
+        body.dark-mode .blog-card,
+        body.dark-mode .infographic-card,
+        body.dark-mode .testimonial-card {
+            background-color: #333;
+            /* Dark background for dark mode */
+            color: #e0e0e0;
+            /* Light text color */
+        }
+
+        body.dark-mode .read-more {
+            color: #60a5fa;
+            /* Lighter blue for dark mode links */
         }
     </style>
 </head>
@@ -460,54 +594,58 @@
         </div>
     </section>
 
+    <!-- Blog Section -->
     <section class="section mt-20 px-6 md:px-20" id="blog">
         <h2 class="text-center text-3xl font-semibold mb-8">Our Blog</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="blog-card">
                 <h3 class="text-2xl font-bold mb-4">Understanding Your Water Footprint</h3>
                 <p>Learn the basics of water footprint and how you can start reducing yours today.</p>
-                <a href="#" class="text-blue-500 mt-4 inline-block">Read More</a>
+                <a href="#" class="read-more">Read More</a>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="blog-card">
                 <h3 class="text-2xl font-bold mb-4">The Role of Technology in Water Conservation</h3>
                 <p>Explore how technology is playing a critical role in managing water resources efficiently.</p>
-                <a href="#" class="text-blue-500 mt-4 inline-block">Read More</a>
+                <a href="#" class="read-more">Read More</a>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="blog-card">
                 <h3 class="text-2xl font-bold mb-4">5 Sustainable Farming Practices to Save Water</h3>
                 <p>Discover farming techniques that are both environmentally friendly and water-efficient.</p>
-                <a href="#" class="text-blue-500 mt-4 inline-block">Read More</a>
+                <a href="#" class="read-more">Read More</a>
             </div>
         </div>
     </section>
 
+    <!-- Infographics Section -->
     <section class="section mt-20 px-6 md:px-20" id="infographics">
         <h2 class="text-center text-3xl font-semibold mb-8">Water Footprint Infographics</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="infographic-card">
                 <img src="img1.png" alt="Water Footprint of Products" class="w-full rounded mb-4">
                 <p class="text-center">Water Footprint of Common Agricultural Products</p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="infographic-card">
                 <img src="img2.jpg" alt="Global Water Scarcity" class="w-full rounded mb-4">
                 <p class="text-center">Understanding Global Water Scarcity</p>
             </div>
         </div>
     </section>
 
+    <!-- Testimonials Section -->
     <section class="section mt-20 px-6 md:px-20 bg-gray-200 py-10" id="testimonials">
         <h2 class="text-center text-3xl font-semibold mb-8">User Testimonials</h2>
         <div class="space-y-6">
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="testimonial-card">
                 <p class="text-lg">"The Water Footprint Calculator helped me realize how much water I was using daily.
                     It's an eye-opener!" - Ramiz Iqbal</p>
             </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="testimonial-card">
                 <p class="text-lg">"Thanks to this tool, I now make more conscious choices when buying products. A great
                     initiative!" - Arshina Azam</p>
             </div>
         </div>
     </section>
+
 
     <section class="section mt-20 px-6 md:px-20" id="roadmap">
         <h2 class="text-center text-3xl font-semibold mb-8">Our Roadmap</h2>
