@@ -460,6 +460,40 @@
             color: #60a5fa;
             /* Lighter blue for dark mode links */
         }
+        /* Primary Button Styles */
+/* Primary Button Styles */
+.btn-primary {
+    display: inline-block;
+    background-color: #1d4ed8; /* Blue background for primary buttons */
+    color: #ffffff; /* White text color */
+    padding: 0.75rem 1.5rem; /* Padding for button */
+    border-radius: 0.5rem; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    font-weight: 500; /* Font weight */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+    margin-top: 20px; /* Space between buttons */
+}
+
+.btn-primary:hover {
+    background-color: #2563eb; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.btn-primary:active {
+    background-color: #1e40af; /* Even darker blue when button is clicked */
+    transform: translateY(1px); /* Slight downward effect on click */
+}
+
+/* Dark Mode Adjustments for Button */
+body.dark-mode .btn-primary {
+    background-color: #60a5fa; /* Lighter blue for dark mode */
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #4f8cf4; /* Adjusted blue for hover in dark mode */
+}
+
     </style>
 </head>
 
@@ -528,7 +562,9 @@
             class="stylish-button bg-green-500 text-white py-3 px-8 rounded-lg shadow-lg text-lg font-semibold">Calculate
             Water Footprint</a>
     </div>
-
+    <div class="text-center">
+        <a href="https://crop-recognig.onrender.com/" class="btn-primary">Crop Recognition and Suggestions</a>
+    </div>
 
     <section class="section mt-20 px-6 md:px-20" id="product-info">
         <h2 class="text-center text-3xl font-semibold mb-8">Product Water Footprint Details</h2>
