@@ -40,17 +40,66 @@
         }
 
         .navbar {
+            backdrop-filter: blur(10px);
+            /* Adds the blur effect */
+            background-color: rgba(0, 123, 255, 0.226);
+            /* Transparent blue background */
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .navbar:hover {
-            background-color: #0056b3;
+            background-color: rgba(0, 123, 255, 0.5);
+            /* Slightly darker on hover */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
         }
 
-        .navbar-menu {
-            display: none;
+        #navbar-menu {
+            background-color: rgba(0, 123, 255, 0.226);
+            /* More opaque for mobile menu */
+            backdrop-filter: blur(10px);
+            /* Keep blur on mobile too */
         }
+
+        .navbar-toggler button span {
+            background-color: white;
+            /* Keep the toggler white for visibility */
+        }
+
+        /* Transparent Navbar for Dark Mode */
+        /* Dark mode navbar */
+        body.dark-mode .navbar {
+            background-color: rgba(44, 44, 44, 0.6);
+            backdrop-filter: blur(10px);
+            box-shadow: none;
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        body.dark-mode .navbar:hover {
+            background-color: rgba(44, 44, 44, 0.6);
+        }
+
+        body.dark-mode .navbar a {
+            color: #e0e0e0;
+        }
+
+        /* Transparent Sidebar Menu in Dark Mode */
+        body.dark-mode #navbar-menu {
+            background-color: rgba(44, 44, 44, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Ensure the navbar toggler stays visible */
+        body.dark-mode .navbar-toggler button span {
+            background-color: white;
+        }
+
+        /* Apply smooth transitions to ensure the blur is consistent */
+        body.dark-mode .navbar,
+        body.dark-mode #navbar-menu {
+            transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+        }
+
 
         @media (max-width: 768px) {
             .navbar-toggler {
@@ -201,88 +250,90 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-    .dark-mode-toggle {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background-color: #ccc;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-}
+        .dark-mode-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        }
 
-.dark-mode-toggle .toggle-label {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
+        .dark-mode-toggle .toggle-label {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
 
-.dark-mode-toggle .toggle-ball {
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 24px;
-    height: 24px;
-    background-color: white;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
+        .dark-mode-toggle .toggle-ball {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.dark-mode-toggle .toggle-ball::before {
-    content: "\2600"; /* Sun icon (☀) */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 16px;
-    color: #ffcf10; /* Sun color */
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease;
-}
+        .dark-mode-toggle .toggle-ball::before {
+            content: "\2600";
+            /* Sun icon (☀) */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 16px;
+            color: #ffcf10;
+            /* Sun color */
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+        }
 
-#dark-mode-toggle:checked + .toggle-label .toggle-ball::before {
-    content: "\1F319"; /* Moon icon (🌙) */
-    color: #ffcc00; /* Moon color */
-}
+        #dark-mode-toggle:checked+.toggle-label .toggle-ball::before {
+            content: "\1F319";
+            /* Moon icon (🌙) */
+            color: #ffcc00;
+            /* Moon color */
+        }
 
-/* #dark-mode-toggle:checked + .toggle-label {
+        /* #dark-mode-toggle:checked + .toggle-label {
     background-color: #000000;
     box-shadow: inset 0 0 10px rgba(255, 0, 0, 0.5); */
-/* } */
+        /* } */
 
-#dark-mode-toggle:checked + .toggle-label .toggle-ball {
-    transform: translateX(30px);
-    background-color: #7e7e7e;
-}
+        #dark-mode-toggle:checked+.toggle-label .toggle-ball {
+            transform: translateX(30px);
+            background-color: #7e7e7e;
+        }
 
-.dark-mode-toggle .toggle-ball::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 14px;
-    height: 14px;
-    background-color: #ecaf08;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+        .dark-mode-toggle .toggle-ball::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            background-color: #ecaf08;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-#dark-mode-toggle:not(:checked) + .toggle-label .toggle-ball::after {
-    opacity: 1;
-}
-
-
+        #dark-mode-toggle:not(:checked)+.toggle-label .toggle-ball::after {
+            opacity: 1;
+        }
     </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
 
     <nav
-        class="navbar flex justify-between items-center px-6 py-4 bg-blue-600 shadow-lg fixed w-full top-0 left-0 z-50">
+        class="navbar flex justify-between items-center px-6 py-4 fixed w-full top-0 left-0 z-50 transition backdrop-blur-md bg-opacity-20 bg-blue-500">
         <div class="logo text-white text-2xl font-bold">
             <a href="#home" class="hover:text-yellow-400 transition">Water Footprint</a>
         </div>
@@ -315,19 +366,21 @@
             </div>
         </div>
     </nav>
-    <div id="navbar-menu" class="sidebar-menu md:hidden">
+
+    <div id="navbar-menu" class="sidebar-menu md:hidden bg-blue-500 bg-opacity-90 backdrop-blur-lg">
         <ul>
-            <li><a href="#home" class="font-semibold hover:text-yellow-400 transition block">Home</a></li>
+            <li><a href="#home" class="text-white font-semibold hover:text-yellow-400 transition block">Home</a></li>
             <li><a href="https://mirazali789.github.io/About"
-                    class="font-semibold hover:text-yellow-400 transition block">About</a></li>
-            <li><a href="#product-info" class="font-semibold hover:text-yellow-400 transition block">Product Info</a>
+                    class="text-white font-semibold hover:text-yellow-400 transition block">About</a></li>
+            <li><a href="#product-info" class="text-white font-semibold hover:text-yellow-400 transition block">Product
+                    Info</a></li>
+            <li><a href="#sustainability-tips"
+                    class="text-white font-semibold hover:text-yellow-400 transition block">Tips</a></li>
+            <li><a href="#case-studies" class="text-white font-semibold hover:text-yellow-400 transition block">Case
+                    Studies</a></li>
+            <li><a href="#blog" class="text-white font-semibold hover:text-yellow-400 transition block">Blog</a></li>
+            <li><a href="#contact" class="text-white font-semibold hover:text-yellow-400 transition block">Contact</a>
             </li>
-            <li><a href="#sustainability-tips" class="font-semibold hover:text-yellow-400 transition block">Tips</a>
-            </li>
-            <li><a href="#case-studies" class="font-semibold hover:text-yellow-400 transition block">Case Studies</a>
-            </li>
-            <li><a href="#blog" class="font-semibold hover:text-yellow-400 transition block">Blog</a></li>
-            <li><a href="#contact" class="font-semibold hover:text-yellow-400 transition block">Contact</a></li>
         </ul>
     </div>
 
